@@ -1,6 +1,6 @@
 var init_connection = function () 
 {
-	var ip = 'http://104.155.1.104:3000'
+	//var ip = **SEONSORED**
 	//var ip = 'localhost:3000'
 	socket = io.connect(ip);
 
