@@ -1,0 +1,65 @@
+<html>
+<head>
+	<link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	 <link rel="stylesheet" type="text/css" href="../css/loading_spinner.css">
+</head>
+<body>
+	<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script type="text/javascript" src="../js/jquery/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="../js/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="../js/sha512.js"></script>
+    <div id="wrapper">
+	    <button id="logout" style="display: none">LOGOUT</button>
+		<div id="login" style="display: none">
+			<form>
+				<p>username:</p>
+				<input type="text" name="username" placeholder="username" />
+				<p>password:</p>
+				<input type="password" name="password" placeholder="password" />
+				<input type="submit" value="enter">
+			</form>
+			<div class="error"></div>
+		</div>
+		<main style="display: none">
+			<table>
+				<tr>
+					<th>uid</th>
+					<th>username</th>
+				</tr>
+				<tr id="info" style="display: none">
+					<td colspan="2">
+						<div id="header"></div>
+						<div id="stats"></div>
+						<form>
+							religion: <input type="text" name="religion" placeholder="religion" /><br>
+							race: <input type="text" name="race" placeholder="race" /><br>
+							hometown: <input type="text" name="home" placeholder="home" /><br>
+							<input type="submit" value="save">
+						</form>
+						<button id="remove">remove</button>
+						<button id="ban">ban</button>
+					</td>
+				</tr>
+			</table>
+		</main>
+    </div>
+    <div id="load_wrapper">
+	    <div id="loader-1">
+	        <span></span><span></span><span></span><span></span><span></span>
+	    </div>
+	</div>
+	<script>
+	    if(window.innerHeight*4<window.innerWidth*5)
+	    {
+	        var height = window.innerHeight
+	        var width = window.innerHeight/5*4
+	    } else {
+	        var height = window.innerWidth/4*5
+	        var width = window.innerWidth
+	    }
+	    $("#loader-1").css("margin-top", height/2)
+	</script>
+</body>
+</html>

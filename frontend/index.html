@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta  charset="utf-8" name="viewport" content="initial-scale=1, maximum-scale=1">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/loading_spinner.css">
+    <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script type="text/javascript" src="js/jquery/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/form.js"></script>
+    <script type="text/javascript" src="js/sha512.js"></script>
+
+    <script type="text/javascript" src="js/three/three.min.js"></script>
+    <script type="text/javascript" src="js/three/physi.js" ></script>
+    <script type="text/javascript" src="js/three/OBJLoader.js"></script>
+    <script type="text/javascript" src="js/three/ColladaLoader.js"></script>
+    <script type="text/javascript" src="js/three/Detector.js"></script>
+    <script type="text/javascript" src="js/game.js"></script>
+    <script type="text/javascript" src="js/utils.js"></script>
+    <script type="text/javascript" src="js/client.js"></script>
+    <script type="text/javascript" src="js/stats.js"></script>
+    <div id="wrapper" style="display:none">
+        <div id="main">
+            <div id="content">
+                <div class="header">
+                    <div>MAIN MANU:</div>
+                    <p></p>
+                </div>
+                <div class="button-container">
+                    <div class="button" id="logout_button" target="none" style="display:none">
+                        <div>LOGOUT</div>
+                    </div>
+                    <div class="button" id="login_button" target="login">
+                        <div>LOGIN</div>
+                    </div>
+                    <div class="button play" id="play_button" target="game">
+                        <div>PLAY</div>
+                    </div>
+                    <div class="button" id="register_button" target="register">
+                        <div>REGISTER</div>
+                    </div>
+                    <div class="button" id="profile_button" target="profile">
+                        <div>PROFILE</div>
+                    </div>
+                </div>
+                <div class="button-container">
+                <div class="button" id="highscore_button" target="highscore">
+                        <div>HIGHSCORES</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div id="login" style="display: none">
+            <div>LOGIN:</div>
+            <div id="content">
+                <form id="login_form">
+                    <input type="text" .class="username" name="username" placeholder="username" />
+                    <input type="password" .class="passwd" name="passwd" placeholder="password" />
+                    <input type="submit" class="submit-button" target="" value ="LOGIN" id="login_submit" />
+                </form>
+                <div class="button-container">
+                    <div class="button" target="main">
+                        <div>BACK</div>
+                    </div>
+                </div>
+                <div class="error"></div>
+            </div>
+        </div>
+        <div id="register" style="display: none">
+            <div id="content">
+                <div>
+                REGISTER:
+                </div>
+                <form id="register_form">
+                    <input name="username" type="text" placeholder="username" .class="username"/>
+                    <input name="password" type="password" placeholder="password" .class="passwd" />
+                    <input name="password-conf" type="password" placeholder="password confirm" .class="passwd" />
+                     <input class="submit-button" type="submit" target="none" id="register_submit" value="REGISTER" />
+                </form>
+                <div class="button-container">
+                    <div class="button" target="main">
+                        <div>BACK</div>
+                    </div>
+                </div>
+                <div class="error"></div>
+            </div>
+            
+        </div>
+        <div id="profile" style="display: none">
+            <div id="content">
+                <div class="header">
+                    <div>PROFILE:</div>   
+                </div>
+                <ul id="stats">
+                </ul>
+                <form id="passwd_change_form">
+                <h6>--------------change password:--------------</h6>
+                    <input name="old-passwd" type="password" placeholder="old password" .class="passwd" />
+                    <input name="new-passwd" type="password" placeholder="new password" .class="passwd" />
+                    <input name="new-passw-conf" type="password" placeholder="password confirm" .class="passwd" />
+                    <input class="submit-button" type="submit" target="none" id="register_submit" value="save" />
+                </form>
+                <div class="error"></div>
+                <form id="info_change_form">
+                <h6>--------------personal information:--------------</h6>
+                    race:<br><input name="race" type="text" placeholder="" /><br>
+                    religion:<br><input name="religion" type="text" placeholder=""/><br>
+                    hometown:<br><input name="home" type="text" placeholder=""/><br>
+                    <input class="submit-button" type="submit" target="none" id="register_submit" value="save" />
+                </form>
+                
+                <div class="button-container">
+                    <div class="button" target="main">
+                        <div>BACK</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="highscore" style="display: none">
+            <div id="content">
+                <div class="header">
+                    <div>HIGHSCORES TOP10:</div>
+                </div>
+                <ul>
+                </ul>
+                <div class="button-container">
+                    <div class="button" target="main">
+                        <div>BACK</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="game" style="display:none">
+            <div id="score"></div>
+            <div class="button" id="menu" target="main" onclick="pause=true;"/>
+                <div>☰</div>
+            </div>   
+        </div>
+        <div id ="broadcast">
+            <ul></ul>
+        </div>
+    </div>
+    <div id="load_wrapper">
+        <div id="loader-1">
+            <span></span><span></span><span></span><span></span><span></span>
+        </div>
+    </div>
+    <script>
+        if(window.innerHeight*4<window.innerWidth*5)
+        {
+            var height = window.innerHeight
+            var width = window.innerHeight/5*4
+        } else {
+            var height = window.innerWidth/4*5
+            var width = window.innerWidth
+        }
+        $("#loader-1").css("margin-top", height/2)
+    </script>
+    <script type="text/javascript" src="js/jquery/jquery.bigtext.js"></script>
+</body>
+</html>

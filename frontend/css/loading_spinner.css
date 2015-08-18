@@ -1,0 +1,95 @@
+span {
+  display: inline-block;
+  height: 15px;
+  width: 15px;
+  background: #006599;
+  border-radius: 0px;
+}
+#loader-1
+{
+  width: 100%;
+  position: fixed;
+}
+#load_wrapper
+{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: grey;
+  opacity: 0.5;
+  left: 0;
+  top: 0;
+}
+.border-radius {
+  border-radius: 500px;
+}
+*[id*="loader-"] {
+  margin-bottom: 30px;
+}
+#loader-1 span:nth-child(1) {
+  border-radius: 500px;
+  -webkit-animation: scale 1s 0.1s infinite cubic-bezier(0.6, -0.28, 0.735, 0.045);
+          animation: scale 1s 0.1s infinite cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+#loader-1 span:nth-child(2) {
+  border-radius: 500px;
+  -webkit-animation: scale 1s 0.2s infinite cubic-bezier(0.6, -0.28, 0.735, 0.045);
+          animation: scale 1s 0.2s infinite cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+#loader-1 span:nth-child(3) {
+  border-radius: 500px;
+  -webkit-animation: scale 1s 0.3s infinite cubic-bezier(0.6, -0.28, 0.735, 0.045);
+          animation: scale 1s 0.3s infinite cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+#loader-1 span:nth-child(4) {
+  border-radius: 500px;
+  -webkit-animation: scale 1s 0.4s infinite cubic-bezier(0.6, -0.28, 0.735, 0.045);
+          animation: scale 1s 0.4s infinite cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+#loader-1 span:nth-child(5) {
+  border-radius: 500px;
+  -webkit-animation: scale 1s 0.5s infinite cubic-bezier(0.6, -0.28, 0.735, 0.045);
+          animation: scale 1s 0.5s infinite cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+@-webkit-keyframes scale {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  25% {
+    -webkit-transform: scale(0.9, 0.9);
+            transform: scale(0.9, 0.9);
+    background: #0087cc;
+  }
+  50% {
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+    margin: 0 3px;
+    background: #006599;
+  }
+  100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+}
+@keyframes scale {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  25% {
+    -webkit-transform: scale(0.9, 0.9);
+            transform: scale(0.9, 0.9);
+    background: #0087cc;
+  }
+  50% {
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+    margin: 0 3px;
+    background: #006599;
+  }
+  100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+}
